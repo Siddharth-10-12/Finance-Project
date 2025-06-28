@@ -35,13 +35,12 @@ Built using **React.js** for the frontend and **Firebase** for the backend (auth
 | Frontend | Backend / Hosting | Other |
 |----------|-------------------|-------|
 | React.js | Firebase Auth      | Chart.js for visualization |
-| CSS / Tailwind | Firebase Firestore | Firebase Hosting |
-| JavaScript | Firebase Functions (if used) | AI logic using JS or ML APIs (mocked/demo) |
+| CSS / Bootstrap | Firebase Firestore | Firebase Hosting |
+| JavaScript | Firebase Functions | AI logic using JS or ML APIs (mocked/demo) |
 
 ---
 
 ## 📸 Screenshots
 
-> Add relevant screenshots or GIFs here using:
-```md
-![Screenshot](./screens/screen1.png)
+
+![Screenshot](./ss/expense.png)
