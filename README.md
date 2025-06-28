@@ -42,5 +42,8 @@ Built using **React.js** for the frontend and **Firebase** for the backend (auth
 
 ## 📸 Screenshots
 
+### 📊 Expense Tracker
+![Expense Tracker](./ss/expense.png)
 
-![Screenshot](./ss/expense.png)
+### 🏦 Loan Recommendation
+![Loan Recommendation](./ss/Loanrec.png)
