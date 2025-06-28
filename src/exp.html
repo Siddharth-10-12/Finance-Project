@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expenditure Tracker Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (for user icon) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background: #f4f7fc;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .sidebar {
+      min-height: 100vh;
+      background: #343a40;
+      color: #fff;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      color: #fff;
+      padding: 10px 15px;
+      display: block;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background: #495057;
+    }
+    .main-content {
+      padding: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .card {
+      box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,.15);
+      border: none;
+      border-radius: 0.35rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .hidden {
+      display: none;
+    }
+    /* Dropdown styling to match sidebar links */
+    .nav-link {
+      color: #fff !important;
+      padding: 10px 15px;
+    }
+    .nav-link:hover {
+      background: #495057;
+      color: #fff !important;
+    }
+    .dropdown-menu {
+      background-color: #343a40;
+      border: none;
+    }
+    .dropdown-item {
+      color: #fff;
+    }
+    .dropdown-item:hover {
+      background-color: #495057;
+      color: #fff;
+    }
+    /* Dark mode overrides */
+    .dark-mode {
+      background-color: #212529; /* Dark background */
+      color: #f8f9fa;          /* Light text */
+    }
+    .dark-mode .sidebar {
+      background-color: #1c1e21; /* Slightly darker sidebar */
+    }
+    .dark-mode .sidebar a:hover {
+      background: #2c2f33;
+    }
+    .dark-mode .card {
+      background-color: #2c2f33;
+      color: #f8f9fa;
+    }
+    .dark-mode .dropdown-menu {
+      background-color: #1c1e21;
+    }
+    .dark-mode .dropdown-item:hover {
+      background-color: #2c2f33;
+    }
+    /* Toast positioning */
+    .toast-container {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 sidebar">
+        <div class="text-center mb-4">
+          <h4>Expense Tracker</h4>
+        </div>
+        <!-- Nav links -->
+        <a href="#" class="nav-link">Dashboard</a>
+        <a href="reports.html" class="nav-link">Reports</a>
+        <!-- Settings dropdown in the sidebar -->
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Settings
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="#" id="changeTheme">Change Theme</a></li>
+            <li><a class="dropdown-item" href="#">Enable Reminders</a></li>
+            <li><a class="dropdown-item" href="#">Data Backup</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+      <!-- Main Content -->
+      <main class="col-md-10 main-content">
+        <!-- Header with user icon -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2>Dashboard</h2>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-primary me-3">Add New Expense</button>
+            <!-- User icon -->
+            <i class="bi bi-person-circle fs-3"></i>
+          </div>
+        </div>
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Total Expenses</h5>
+              <p class="fs-4">$5,000</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Monthly Expenses</h5>
+              <p class="fs-4">$1,200</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Remaining Budget</h5>
+              <p class="fs-4">$3,800</p>
+            </div>
+          </div>
+        </div>
+        <!-- Expense Form -->
+        <div class="card mb-4">
+          <div class="card-header">
+            Add Expense
+          </div>
+          <div class="card-body">
+            <form id="expenseForm">
+              <div class="row mb-3">
+                <div class="col-md-4">
+                  <label for="expenseName" class="form-label">Expense Name</label>
+                  <input type="text" id="expenseName" class="form-control" placeholder="e.g. Grocery">
+                </div>
+                <div class="col-md-4">
+                  <label for="amount" class="form-label">Amount ($)</label>
+                  <input type="number" id="amount" class="form-control" placeholder="e.g. 50">
+                </div>
+                <div class="col-md-4">
+                  <label for="category" class="form-label">Category</label>
+                  <select id="category" class="form-select">
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Custom">Custom</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Custom Category Input -->
+              <div class="mb-3 hidden" id="customCategoryDiv">
+                <label for="customCategory" class="form-label">Custom Category</label>
+                <input type="text" id="customCategory" class="form-control" placeholder="Enter custom category">
+              </div>
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" id="date" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success" id="submitButton">Add Expense</button>
+            </form>
+          </div>
+        </div>
+        <!-- Expense Table -->
+        <div class="card">
+          <div class="card-header">
+            Recent Expenses
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Amount ($)</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="expenseTable">
+                <!-- New expense rows will appear here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Expense Tracker</strong>
+        <small class="text-muted">Now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toastBody">
+        <!-- This text will be updated dynamically -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS bundle (includes Popper for dropdowns) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS for dynamic expense handling and theme toggle -->
+  <script>
+    let editRow = null; // Stores the row being edited
+
+    // -------------------------
+    // THEME TOGGLE FUNCTIONALITY
+    // -------------------------
+    // On page load, check localStorage for theme preference
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+
+    // Toggle theme on "Change Theme" click
+    document.getElementById('changeTheme').addEventListener('click', function(e) {
+      e.preventDefault();
+      const isDark = document.body.classList.toggle('dark-mode');
+      // Save preference
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // -------------------------
+    // TOAST NOTIFICATION
+    // -------------------------
+    function showToast(message) {
+      document.getElementById('toastBody').textContent = message;
+      let toastEl = document.getElementById('liveToast');
+      let toast = new bootstrap.Toast(toastEl);
+      toast.show();
+    }
+
+    // -------------------------
+    // CATEGORY FORM HANDLING
+    // -------------------------
+    document.getElementById('category').addEventListener('change', function() {
+      const categorySelect = this.value;
+      const customDiv = document.getElementById('customCategoryDiv');
+      if (categorySelect === 'Custom') {
+        customDiv.classList.remove('hidden');
+      } else {
+        customDiv.classList.add('hidden');
+        document.getElementById('customCategory').value = '';
+      }
+    });
+
+    // Handle form submission to add or update an expense
+    document.getElementById('expenseForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Retrieve form values
+      const expenseName = document.getElementById('expenseName').value;
+      const amount = document.getElementById('amount').value;
+      let category = document.getElementById('category').value;
+      const customCategory = document.getElementById('customCategory').value;
+      const date = document.getElementById('date').value;
+      
+      // Basic validation
+      if(expenseName === '' || amount === '' || date === ''){
+          alert('Please fill in all required fields');
+          return;
+      }
+      
+      // Use custom category if "Custom" is selected
+      if(category === 'Custom') {
+        if(customCategory.trim() === ''){
+          alert('Please enter a custom category');
+          return;
+        }
+        category = customCategory.trim();
+      }
+      
+      // If editing, update the existing row; otherwise, add a new row.
+      if (editRow) {
+        editRow.cells[0].textContent = expenseName;
+        editRow.cells[1].textContent = amount;
+        editRow.cells[2].textContent = category;
+        editRow.cells[3].textContent = date;
+        // Reset editing state
+        editRow = null;
+        document.getElementById('submitButton').textContent = 'Add Expense';
+        showToast("Expense updated successfully!");
+      } else {
+        // Create a new table row for the new expense
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${expenseName}</td>
+          <td>${amount}</td>
+          <td>${category}</td>
+          <td>${date}</td>
+          <td>
+            <button class="btn btn-sm btn-primary" onclick="editExpense(this)">Edit</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteExpense(this)">Delete</button>
+          </td>
+        `;
+        document.getElementById('expenseTable').appendChild(newRow);
+        showToast("Expense added successfully!");
+      }
+      
+      // Reset the form fields after submission
+      document.getElementById('expenseForm').reset();
+      document.getElementById('customCategoryDiv').classList.add('hidden');
+    });
+    
+    // Function to delete an expense row
+    function deleteExpense(btn) {
+      if (editRow && btn.closest('tr') === editRow) {
+        document.getElementById('expenseForm').reset();
+        document.getElementById('submitButton').textContent = 'Add Expense';
+        document.getElementById('customCategoryDiv').classList.add('hidden');
+        editRow = null;
+      }
+      btn.closest('tr').remove();
+      showToast("Expense deleted!");
+    }
+    
+    // Function to initiate editing for an expense row
+    function editExpense(btn) {
+      editRow = btn.closest('tr');
+      // Pre-fill the form with the existing data from the row
+      document.getElementById('expenseName').value = editRow.cells[0].textContent;
+      document.getElementById('amount').value = editRow.cells[1].textContent;
+      const existingCategory = editRow.cells[2].textContent;
+      // Check if the existing category matches a predefined option
+      const predefined = ['Food', 'Transport', 'Bills', 'Entertainment'];
+      if (predefined.includes(existingCategory)) {
+        document.getElementById('category').value = existingCategory;
+        document.getElementById('customCategoryDiv').classList.add('hidden');
+        document.getElementById('customCategory').value = '';
+      } else {
+        // For a custom category, select "Custom" and show the input
+        document.getElementById('category').value = 'Custom';
+        document.getElementById('customCategoryDiv').classList.remove('hidden');
+        document.getElementById('customCategory').value = existingCategory;
+      }
+      document.getElementById('date').value = editRow.cells[3].textContent;
+      document.getElementById('submitButton').textContent = 'Update Expense';
+    }
+  </script>
+</body>
+</html>

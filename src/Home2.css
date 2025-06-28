@@ -1,0 +1,262 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+  }
+  
+  /* Background Gradient */
+  .financial-platform-home {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #318ad3, #2D2D6E);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #1E1E4F, #2D2D6E);
+    z-index: -1;
+  }
+  
+  /* Blurred Background */
+  .financial-platform-home.blurred {
+    filter: blur(5px);
+    pointer-events: none; /* Disable interactions with the background */
+  }
+  
+  /* Top Navigation */
+  .top-navigation {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .nav-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .auth-buttons .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .auth-buttons .btn-outline-light {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .auth-buttons .btn-light {
+    background: white;
+    color: #1e3d4f;
+  }
+  
+  .auth-buttons .btn:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Main Headline and Subtitle */
+  .main-headline {
+    text-align: center;
+    margin-top: 20vh;
+  }
+  
+  .main-headline h1 {
+    font-size: 72px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .main-headline p {
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+  }
+  
+  /* Call-to-Action Buttons */
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .cta-button {
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .cta-button.btn-primary {
+    background: white;
+    color: #1e3d4f;
+  }
+  
+  .cta-button.btn-secondary {
+    background: #1E1E4F;
+    color: white;
+  }
+  
+  .cta-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Statistics Section */
+  .statistics {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .stat-label {
+    font-size: 16px;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    background: white;
+    padding: 40px 20px;
+    margin-top: 80px;
+  }
+  
+  .testimonials h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+  }
+  
+  .testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    /* width: 300px; */
+    height: 200px;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+    padding: 20px;
+    background: white;
+  }
+  
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .quote {
+    font-size: 16px;
+    font-style: italic;
+    color: #757575;
+    margin-top: 10px;
+  }
+  
+  .name {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-top: 5px;
+  }
+  
+  .title {
+    font-size: 14px;
+    color: black;
+  }
+  
+  /* Footer Links Section */
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 80px;
+  }
+  
+  .footer-links h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact-us p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  /* Scroll Prompt */
+  .scroll-prompt {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+  }

@@ -1,0 +1,57 @@
+/* Free Trial Page Styles */
+.free-trial-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #318ad3, #2D2D6E); /* Same gradient as Home2 */
+    color: white;
+  }
+  
+  .free-trial-content {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Blur effect for the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 400px; /* Fixed width for the container */
+  }
+  
+  .free-trial-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .free-trial-content p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .free-trial-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .free-trial-buttons .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .free-trial-buttons .btn-primary {
+    background: white;
+    color: #1e3d4f;
+  }
+  
+  .free-trial-buttons .btn-secondary {
+    background: #1E1E4F;
+    color: white;
+  }
+  
+  .free-trial-buttons .btn:hover {
+    transform: scale(1.05);
+  }

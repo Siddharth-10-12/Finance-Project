@@ -1,0 +1,117 @@
+/* sta.css */
+/* Get Started Page Styles */
+.get-started-section {
+    background-color: #FFFFFF;
+    padding: 60px 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .get-started-section h2 {
+    font-size: 36px;
+    color: #1A202C;
+    margin-bottom: 20px;
+  }
+  
+  .get-started-section p {
+    font-size: 18px;
+    color: #718096;
+    margin-bottom: 40px;
+  }
+  
+  .get-started-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #F7FAFC;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 16px;
+    color: #1A202C;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #4A5568;
+    background-color: #FFFFFF;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #00C48C;
+    box-shadow: 0 0 0 2px rgba(0, 196, 140, 0.2);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .form-buttons button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-buttons .submit-button {
+    background-color: #00C48C;
+    color: #FFFFFF;
+  }
+  
+  .form-buttons .submit-button:hover {
+    background-color: #00A699;
+  }
+  
+  .form-buttons .reset-button {
+    background-color: #E2E8F0;
+    color: #4A5568;
+  }
+  
+  .form-buttons .reset-button:hover {
+    background-color: #CBD5E0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .get-started-form {
+      padding: 20px;
+    }
+  
+    .form-buttons {
+      flex-direction: column;
+    }
+  
+    .form-buttons button {
+      width: 100%;
+    }
+  }

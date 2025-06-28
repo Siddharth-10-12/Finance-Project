@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+/* Scoped styles for the Fin component */
+.fin-background {
+  background: url("Background.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden; /* Ensure scrolling is enabled for the rest of the app */
+  font-family: 'Orbitron', sans-serif; /* Apply Orbitron font only to Fin */
+}
+
+/* Remove global styles and scope them to .fin-background */
+.fin-background * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit; /* Inherit font from .fin-background */
+}
+
+/* Container for the Fin component */
+.fin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+/* Navbar styles (scoped to Fin) */
+.fin-navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Button styles (scoped to Fin) */
+.fin-home-button,
+.fin-report-button,
+.fin-video-button {
+  background-color: #7dff7d;
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.fin-home-button:hover,
+.fin-report-button:hover,
+.fin-video-button:hover {
+  background-color: rgba(255, 240, 120, 1);
+  box-shadow: 0 0 15px rgba(255, 240, 120, 1);
+  color: #000;
+}
+
+.fin-home-button:active,
+.fin-report-button:active,
+.fin-video-button:active {
+  background-color: rgb(255, 244, 160);
+  box-shadow: 0 0 20px #a8ffa8;
+  color: #000000;
+}
+
+/* Card styles (scoped to Fin) */
+.fin-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 255, 153, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 1600px;
+  max-width: 95%;
+  height: 80vh;
+  text-align: center;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* animation: glowAnimation 2s infinite ease-in-out; */
+}
+
+/* Title styles (scoped to Fin) */
+.fin-title {
+  color: rgba(255, 240, 120, 1);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+/* Form grid styles (scoped to Fin) */
+.fin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 80%;
+  align-items: center;
+}
+
+/* Form input styles (scoped to Fin) */
+.fin-form-input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(0, 255, 153, 0.3);
+  font-family: sans-serif;
+  color: #000000;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.fin-form-input::placeholder {
+  font-family: 'Orbitron', sans-serif;
+  color: #1f1f1f;
+  opacity: 1;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.fin-form-input:focus {
+  border-color: #43feb3;
+  box-shadow: 0 0 20px rgba(67, 254, 179, 1);
+}
+
+/* Submit button styles (scoped to Fin) */
+.fin-submit-button {
+  width: 50%;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 2rem;
+}
+
+.fin-submit-button:hover {
+  background-color: #333;
+  color: #000;
+}
+
+.fin-submit-button:active {
+  background-color: #444;
+  color: #ddd;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Custom button styles (scoped to Fin) */
+.fin-custom-button {
+  background-color: #28a745;
+  color: black;
+  border: none;
+  padding: 80px 50px;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.fin-custom-button:hover {
+  box-shadow: 0 0 15px rgba(255, 240, 120, 1);
+  color: #52ff66;
+  background-color: #1d1d1d;
+  transform: scale(1.05);
+}
+
+/* Button group styles (scoped to Fin) */
+.fin-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Video Modal Styles */
+.fin-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.fin-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 255, 153, 0.5);
+}
+
+.fin-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.fin-close-button:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+/* Video Player Styles */
+.fin-video-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.fin-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.fin-video-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  text-align: left;
+}
+
+.fin-video-title h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #7dff7d;
+}
+
+.fin-video-title p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.fin-video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fin-video-play-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(125, 255, 125, 0.7);
+  border: none;
+  color: #000;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.fin-video-play-button:hover {
+  background-color: rgba(255, 240, 120, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 240, 120, 0.8);
+}
+
+.fin-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  transition: opacity 0.3s ease;
+}
+
+.fin-controls-visible {
+  opacity: 1;
+}
+
+.fin-controls-hidden {
+  opacity: 0;
+}
+
+.fin-video-progress {
+  width: 100%;
+  height: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.fin-video-progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #7dff7d;
+  cursor: pointer;
+}
+
+.fin-video-controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fin-video-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fin-video-control-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.fin-video-control-button:hover {
+  color: #7dff7d;
+  transform: scale(1.1);
+}
+
+.fin-video-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fin-volume-slider {
+  width: 80px;
+  height: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fin-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #7dff7d;
+  cursor: pointer;
+}
+
+.fin-video-time {
+  color: #fff;
+  font-size: 0.9rem;
+  min-width: 100px;
+}
+
+/* Keyframes for glow animation */
+@keyframes glowAnimation {
+  0% {
+    box-shadow: 0 0 25px rgba(255, 223, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 240, 120, 1);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 223, 0, 0.6);
+  }
+}

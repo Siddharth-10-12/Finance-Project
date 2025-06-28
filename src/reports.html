@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Reports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (if needed) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h1 class="mb-4">Reports</h1>
+    
+    <!-- Pie Chart: Spending by Category -->
+    <div class="my-4">
+      <h5>Spending by Category</h5>
+      <canvas id="categoryChart" height="150"></canvas>
+    </div>
+    
+    <!-- Line Chart: Monthly Expenses Over Time -->
+    <div class="my-4">
+      <h5>Monthly Expenses</h5>
+      <canvas id="expenseLineChart" height="150"></canvas>
+    </div>
+    
+    <!-- Export Buttons -->
+    <button class="btn btn-secondary me-2" onclick="exportCSV()">Export CSV</button>
+    <button class="btn btn-secondary" onclick="exportPDF()">Export PDF</button>
+    
+    <!-- Link to go back to the main dashboard (optional) -->
+    <a href="index.html" class="btn btn-primary mt-3 d-block">Back to Dashboard</a>
+  </div>
+
+  <!-- Chart.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // -------------------------
+    // PIE CHART: Spending by Category
+    // -------------------------
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+    const categoryChart = new Chart(categoryCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Food', 'Transport', 'Bills', 'Entertainment'],
+        datasets: [{
+          label: 'Spending by Category',
+          data: [300, 100, 200, 150], // Placeholder data
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // -------------------------
+    // LINE CHART: Monthly Expenses
+    // -------------------------
+    const expenseCtx = document.getElementById('expenseLineChart').getContext('2d');
+    const expenseLineChart = new Chart(expenseCtx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April'], // Placeholder months
+        datasets: [{
+          label: 'Monthly Expenses',
+          data: [500, 700, 450, 600], // Placeholder data
+          borderColor: '#36A2EB',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // -------------------------
+    // EXPORT FUNCTIONS
+    // -------------------------
+    function exportCSV() {
+      alert("Export CSV functionality to be implemented.");
+    }
+    function exportPDF() {
+      alert("Export PDF functionality to be implemented.");
+    }
+  </script>
+</body>
+</html>

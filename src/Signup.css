@@ -1,0 +1,292 @@
+/* Signup Container */
+.signup-container {
+    background: linear-gradient(to bottom, #00C48C, #6A0DAD);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Floating Money Animation */
+  .floating-money {
+    position: absolute;
+    font-size: 48px;
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .floating-money:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+  
+  .floating-money:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+  
+  .floating-money:nth-child(3) {
+    top: 40%;
+    left: 15%;
+    animation-delay: 4s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(10deg);
+    }
+  }
+  
+  /* Bank Logo Animation */
+  .floating-bank {
+    position: absolute;
+    font-size: 48px;
+    animation: float 8s infinite ease-in-out;
+  }
+  
+  .floating-bank {
+    top: 5%;
+    right: 5%;
+    animation-delay: 1s;
+  }
+  
+  /* Stock Logo Animation */
+  .floating-stock {
+    position: absolute;
+    font-size: 48px;
+    animation: float 7s infinite ease-in-out;
+  }
+  
+  .floating-stock {
+    top: 30%;
+    left: 5%;
+    animation-delay: 3s;
+  }
+  
+  /* Rising Coins Animation */
+  .rising-coins {
+    position: absolute;
+    font-size: 36px;
+    animation: rise 5s infinite ease-in-out;
+  }
+  
+  .rising-coins:nth-child(1) {
+    left: 10%;
+    bottom: -10%;
+    animation-delay: 0s;
+  }
+  
+  .rising-coins:nth-child(2) {
+    left: 30%;
+    bottom: -10%;
+    animation-delay: 2s;
+  }
+  
+  .rising-coins:nth-child(3) {
+    left: 50%;
+    bottom: -10%;
+    animation-delay: 4s;
+  }
+  
+  @keyframes rise {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-120vh) rotate(360deg);
+    }
+  }
+  
+  /* Signup Box */
+  .signup-box {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+    border: 4px solid #FFD700;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Money Shape */
+  .money-shape {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    animation: spin 6s infinite linear;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+/* Signup Title */
+.signup-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2f3634; /* Default text color */
+    animation: slideIn 1s ease-in-out;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+  }
+  
+  /* Hover State */
+  .signup-title:hover {
+    color: #594178; /* New text color on hover */
+  }
+  /* Signup Quote */
+  .signup-quote {
+    font-size: 18px;
+    font-style: italic;
+    min-height: 50px;
+    margin-bottom: 30px;
+    color: #6C757D;
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Input Group */
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .signup-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #F5F7F9;
+    color: #333333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .signup-input:focus {
+    border-color: #00C48C;
+    outline: none;
+  }
+  
+  /* Signup Button */
+  .signup-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00C48C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-button:hover {
+    background-color: #00A699;
+  }
+  
+  /* Error and Success Messages */
+  .error-message {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  .success-message {
+    background-color: #00C48C;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+  }
+  
+  /* Login Link */
+  .login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #6C757D;
+  }
+  
+  .login-button {
+    background: none;
+    border: none;
+    color: #00C48C;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .login-button:hover {
+    color: #00A699;
+  }
+  
+  /* Footer */
+  .signup-footer {
+    width: 100%;
+    padding: 20px;
+    background-color: #1A2B3C;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: auto;
+  }
