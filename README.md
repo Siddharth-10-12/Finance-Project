@@ -1,4 +1,4 @@
-# 💰 Smart Finance
+#  Smart Finance
 
 An intelligent and all-in-one personal finance management web app. It includes smart expense tracking, AI-powered investment suggestions, tax management tools, and personalized bank & loan recommendations.
 
@@ -39,11 +39,3 @@ Built using **React.js** for the frontend and **Firebase** for the backend (auth
 | JavaScript | Firebase Functions | AI logic using JS or ML APIs (mocked/demo) |
 
 ---
-
-## 📸 Screenshots
-
-### 📊 Expense Tracker
-![Expense Tracker](./ss/expense.png)
-
-### 🏦 Loan Recommendation
-![Loan Recommendation](./ss/Loanrec.png)
