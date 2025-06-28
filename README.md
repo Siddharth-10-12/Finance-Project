@@ -30,7 +30,7 @@ Built using **React.js** for the frontend and **Firebase** for the backend (auth
 
 ---
 
-## 🛠️ Tech Stack
+##  Tools used
 
 | Frontend | Backend / Hosting | Other |
 |----------|-------------------|-------|
